@@ -19,10 +19,12 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginBottom="16dp"/>
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"
             android:id="@+id/iv_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:src="@drawable/ic_person_rounded"
             android:layout_below="@id/tv_biodata"
             android:layout_centerHorizontal="true"/>

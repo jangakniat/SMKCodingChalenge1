@@ -18,6 +18,14 @@
             android:layout_margin="16dp"
             android:textSize="24sp"
             android:textStyle="bold"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"
+            android:id="@+id/editImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_person_rounded"
+            android:layout_gravity="center_horizontal"/>
         <EditText
             android:id="@+id/editName"
             android:layout_width="match_parent"

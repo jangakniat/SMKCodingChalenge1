@@ -9,7 +9,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
-
+    private var image :Uri?=null
     private var name : String = ""
     private var age : String = ""
     private var gender : String = ""
@@ -31,13 +31,14 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun getProfileData(){
         val bundle = intent.extras
-
+        image = Uri.parse( bundle?.getString("image"))
         name = bundle?.getString("name").toString()
         gender = bundle?.getString("gender").toString()
         age = bundle?.getString("age").toString()
         email = bundle?.getString("email").toString()
         telp = bundle?.getString("telp").toString()
         address = bundle?.getString("address").toString()
+        iv_image.setImageURI(image)
         txtName.text = name
         txtGender.text = gender
         txtAge.text = age
@@ -48,6 +49,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun goToEditProfile(){
         val intent = Intent(this, EditProfileActivity::class.java)
+        intent.putExtra("image", image.toString())
         intent.putExtra("name", name)
         intent.putExtra("gender", gender)
         intent.putExtra("age", age)
@@ -62,12 +64,14 @@ class ProfileActivity : AppCompatActivity() {
     Intent?) {
         if (requestCode == REQUEST_CODE){
             if (resultCode == Activity.RESULT_OK) {
+                image = Uri.parse( data?.getStringExtra("image"))
                 name = data?.getStringExtra("name").toString()
                 gender = data?.getStringExtra("gender").toString()
                 age = data?.getStringExtra("age").toString()
                 email = data?.getStringExtra("email").toString()
                 telp = data?.getStringExtra("telp").toString()
                 address = data?.getStringExtra("address").toString()
+                iv_image.setImageURI(image)
                 txtName.text = name
                 txtGender.text = gender
                 txtAge.text = age
