@@ -32,18 +32,18 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun inputValidation(){
-        inputName = editName.text.toString()
-        inputEmail = editEmail.text.toString()
-        inputTelp = editTelephone.text.toString()
-        inputAddress = editAddress.text.toString()
+        inputName = createName.text.toString()
+        inputEmail = createEmail.text.toString()
+        inputTelp = createTelephone.text.toString()
+        inputAddress = createAddress.text.toString()
         inputGender = spinnerGender.selectedItem.toString()
         when{
-            inputName.isEmpty() -> editName.error = "Nama tidak boleh kosong"
+            inputName.isEmpty() -> createName.error = "Nama tidak boleh kosong"
             inputGender.equals("Pilih Jenis Kelamin", ignoreCase = true) ->
                 showToast("Jenis Kelamin harus dipilih")
-            inputEmail.isEmpty() -> editEmail.error = "Email tidak boleh kosong"
-            inputTelp.isEmpty() -> editTelephone.error = "Telp tidak boleh kosong"
-            inputAddress.isEmpty() -> editAddress.error = "Alamat tidak boleh kosong"
+            inputEmail.isEmpty() -> createEmail.error = "Email tidak boleh kosong"
+            inputTelp.isEmpty() -> createTelephone.error = "Telp tidak boleh kosong"
+            inputAddress.isEmpty() -> createAddress.error = "Alamat tidak boleh kosong"
             else -> {
                 showToast("Navigasi ke halaman profil")
                 goToProfilActivity()

@@ -100,7 +100,7 @@
                     android:textSize="18sp"
                     android:text="Telepon:"/>
                 <TextView
-                    android:id="@+id/txtTelp"
+                    android:id="@+id/txtTelephone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -127,11 +127,11 @@
                     android:text="Malang, Indonesia"/>
             </LinearLayout>
             <Button
-                android:id="@+id/btnEditName"
+                android:id="@+id/btnEditProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:text="EDIT NAMA"/>
+                android:text="EDIT PROFILE"/>
             <Button
                 android:id="@+id/btnCall"
                 android:layout_width="match_parent"
