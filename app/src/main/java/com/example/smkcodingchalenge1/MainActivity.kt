@@ -11,10 +11,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var inputName : String = ""
+    private var inputAge : String = ""
+    private var inputGender : String = ""
     private var inputEmail : String = ""
     private var inputTelp : String = ""
     private var inputAddress : String = ""
-    private var inputGender : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +34,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun inputValidation(){
         inputName = createName.text.toString()
+        inputAge = createAge.text.toString()
+        inputGender = spinnerGender.selectedItem.toString()
         inputEmail = createEmail.text.toString()
         inputTelp = createTelephone.text.toString()
         inputAddress = createAddress.text.toString()
-        inputGender = spinnerGender.selectedItem.toString()
         when{
             inputName.isEmpty() -> createName.error = "Nama tidak boleh kosong"
+            inputAge.isEmpty() -> createAge.error = "usia tidak boleh kosong"
             inputGender.equals("Pilih Jenis Kelamin", ignoreCase = true) ->
                 showToast("Jenis Kelamin harus dipilih")
             inputEmail.isEmpty() -> createEmail.error = "Email tidak boleh kosong"
@@ -59,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         val bundle = Bundle()
         bundle.putString("name", inputName)
         bundle.putString("gender", inputGender)
+        bundle.putString("age", inputAge)
         bundle.putString("email", inputEmail)
         bundle.putString("telp", inputTelp)
         bundle.putString("address", inputAddress)

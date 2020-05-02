@@ -10,6 +10,13 @@ import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
 
+    private var name : String = ""
+    private var age : String = ""
+    private var gender : String = ""
+    private var email : String = ""
+    private var telp : String = ""
+    private var address : String = ""
+
     companion object {
         val REQUEST_CODE = 100
     }
@@ -25,13 +32,15 @@ class ProfileActivity : AppCompatActivity() {
     private fun getProfileData(){
         val bundle = intent.extras
 
-        val name = bundle?.getString("name")
-        val gender = bundle?.getString("gender")
-        val email = bundle?.getString("email")
-        val telp = bundle?.getString("telp")
-        val address = bundle?.getString("address")
+        name = bundle?.getString("name").toString()
+        gender = bundle?.getString("gender").toString()
+        age = bundle?.getString("age").toString()
+        email = bundle?.getString("email").toString()
+        telp = bundle?.getString("telp").toString()
+        address = bundle?.getString("address").toString()
         txtName.text = name
         txtGender.text = gender
+        txtAge.text = age
         txtEmail.text = email
         txtTelephone.text = telp
         txtAddress.text = address
@@ -39,16 +48,12 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun goToEditProfile(){
         val intent = Intent(this, EditProfileActivity::class.java)
-        val inputName = txtName.text.toString()
-        val inputEmail = txtEmail.text.toString()
-        val inputTelp = txtTelephone.text.toString()
-        val inputAddress = txtAddress.text.toString()
-        val inputGender = txtGender.text.toString()
-        intent.putExtra("name", inputName)
-        intent.putExtra("email", inputEmail)
-        intent.putExtra("telp", inputTelp)
-        intent.putExtra("address", inputAddress)
-        intent.putExtra("gender", inputGender)
+        intent.putExtra("name", name)
+        intent.putExtra("gender", gender)
+        intent.putExtra("age", age)
+        intent.putExtra("email", email)
+        intent.putExtra("telp", telp)
+        intent.putExtra("address", address)
         startActivityForResult(intent, REQUEST_CODE)
 
     }
@@ -57,13 +62,15 @@ class ProfileActivity : AppCompatActivity() {
     Intent?) {
         if (requestCode == REQUEST_CODE){
             if (resultCode == Activity.RESULT_OK) {
-                val name = data?.getStringExtra("name")
-                val gender = data?.getStringExtra("gender")
-                val email = data?.getStringExtra("email")
-                val telp = data?.getStringExtra("telp")
-                val address = data?.getStringExtra("address")
+                name = data?.getStringExtra("name").toString()
+                gender = data?.getStringExtra("gender").toString()
+                age = data?.getStringExtra("age").toString()
+                email = data?.getStringExtra("email").toString()
+                telp = data?.getStringExtra("telp").toString()
+                address = data?.getStringExtra("address").toString()
                 txtName.text = name
                 txtGender.text = gender
+                txtAge.text = age
                 txtEmail.text = email
                 txtTelephone.text = telp
                 txtAddress.text = address

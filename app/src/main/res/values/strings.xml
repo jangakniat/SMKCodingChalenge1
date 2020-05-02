@@ -7,6 +7,7 @@
     </string-array>
     <string name="label_biodata">BIODATA</string>
     <string name="hint_name">Nama</string>
+    <string name="hint_age">Usia</string>
     <string name="hint_email">Email</string>
     <string name="hint_telephone">Telepon</string>
     <string name="hint_address">Alamat</string>

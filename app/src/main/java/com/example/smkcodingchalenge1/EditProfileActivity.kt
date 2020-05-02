@@ -33,10 +33,12 @@ class EditProfileActivity : AppCompatActivity() {
 
         val name = intentData?.getString("name")
         val gender = intentData?.getString("gender")
+        val age = intentData?.getString("age")
         val email = intentData?.getString("email")
         val telp = intentData?.getString("telp")
         val address = intentData?.getString("address")
         editName.setText(name)
+        editAge.setText(age)
         editEmail.setText(email)
         setEditSpinner(gender.toString())
         editTelephone.setText(telp)
@@ -50,19 +52,20 @@ class EditProfileActivity : AppCompatActivity() {
                editSpinnerGender.setSelection(x)
            }
             x++
-
         }
 
     }
 
     private fun saveData(){
         val inputName = editName.text.toString()
+        val inputGender = editSpinnerGender.selectedItem.toString()
+        val inputAge = editAge.text.toString()
         val inputEmail = editEmail.text.toString()
         val inputTelp = editTelephone.text.toString()
         val inputAddress = editAddress.text.toString()
-        val inputGender = editSpinnerGender.selectedItem.toString()
         when{
             inputName.isEmpty() -> editName.error = "Nama tidak boleh kosong"
+            inputAge.isEmpty() -> editAge.error = "Umur tidak boleh kosong"
             inputGender.equals("Pilih Jenis Kelamin", ignoreCase = true) ->
                 showToast("Jenis Kelamin harus dipilih")
             inputEmail.isEmpty() -> editEmail.error = "Email tidak boleh kosong"
@@ -72,15 +75,17 @@ class EditProfileActivity : AppCompatActivity() {
                 showToast("Sukses Mengedit Profile")
                 val result = Intent()
                 result.putExtra("name", inputName)
+                result.putExtra("age", inputAge)
+                result.putExtra("gender", inputGender)
                 result.putExtra("email", inputEmail)
                 result.putExtra("telp", inputTelp)
                 result.putExtra("address", inputAddress)
-                result.putExtra("gender", inputGender)
                 setResult(Activity.RESULT_OK, result)
+                finish()
             }
         }
 
-        finish()
+
     }
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
