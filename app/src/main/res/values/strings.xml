@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SMKCodingChalenge1</string>
+    <string name="app_name">SMKCodingChallenge1</string>
     <string-array name="gender">
         <item>Pilih Jenis Kelamin</item>
         <item>Laki-Laki</item>
