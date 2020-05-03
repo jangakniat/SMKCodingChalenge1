@@ -1,13 +1,11 @@
-package com.example.smkcodingchalenge1
+package com.example.smkcodingchallenge1
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.core.content.res.ResourcesCompat
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {

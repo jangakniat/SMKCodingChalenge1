@@ -1,4 +1,4 @@
-package com.example.smkcodingchalenge1
+package com.example.smkcodingchallenge1
 
 import android.Manifest
 import android.app.Activity
@@ -6,10 +6,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 
@@ -19,9 +19,10 @@ class EditProfileActivity : AppCompatActivity() {
 
     companion object {
         //image pick code
-        private val IMAGE_PICK_CODE = 1000;
+        private val IMAGE_PICK_CODE = 1000
+
         //Permission code
-        private val PERMISSION_CODE = 1001;
+        private val PERMISSION_CODE = 1001
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,17 +41,17 @@ class EditProfileActivity : AppCompatActivity() {
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
                 PackageManager.PERMISSION_DENIED){
                 //permission denied
-                val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
+                val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
                 //show popup to request runtime permission
-                requestPermissions(permissions, EditProfileActivity.PERMISSION_CODE);
+                requestPermissions(permissions, EditProfileActivity.PERMISSION_CODE)
             } else{
                 //permission already granted
-                pickImageFromGallery();
+                pickImageFromGallery()
             }
         }
         else{
             //system OS is < Marshmallow
-            pickImageFromGallery();
+            pickImageFromGallery()
         }
     }
 
