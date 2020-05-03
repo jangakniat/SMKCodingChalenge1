@@ -2,14 +2,16 @@ package com.example.smkcodingchalenge1
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
-    private var image :Uri?=null
+    private var image :Uri?= null
     private var name : String = ""
     private var age : String = ""
     private var gender : String = ""
@@ -26,25 +28,28 @@ class ProfileActivity : AppCompatActivity() {
 
         getProfileData()
         btnEditProfile.setOnClickListener{goToEditProfile()}
+        btnAbout.setOnClickListener { goToAbout() }
         btnCall.setOnClickListener { dialPhoneNumber(txtTelephone.text.toString()) }
     }
 
     private fun getProfileData(){
         val bundle = intent.extras
-        image = Uri.parse( bundle?.getString("image"))
-        name = bundle?.getString("name").toString()
-        gender = bundle?.getString("gender").toString()
-        age = bundle?.getString("age").toString()
-        email = bundle?.getString("email").toString()
-        telp = bundle?.getString("telp").toString()
-        address = bundle?.getString("address").toString()
-        iv_image.setImageURI(image)
-        txtName.text = name
-        txtGender.text = gender
-        txtAge.text = age
-        txtEmail.text = email
-        txtTelephone.text = telp
-        txtAddress.text = address
+        if(intent.extras!=null){
+            image = Uri.parse( bundle?.getString("image"))
+            name = bundle?.getString("name").toString()
+            gender = bundle?.getString("gender").toString()
+            age = bundle?.getString("age").toString()
+            email = bundle?.getString("email").toString()
+            telp = bundle?.getString("telp").toString()
+            address = bundle?.getString("address").toString()
+            iv_image.setImageURI(image)
+            txtName.text = name
+            txtGender.text = gender
+            txtAge.text = age
+            txtEmail.text = email
+            txtTelephone.text = telp
+            txtAddress.text = address
+        }
     }
 
     private fun goToEditProfile(){
@@ -71,7 +76,9 @@ class ProfileActivity : AppCompatActivity() {
                 email = data?.getStringExtra("email").toString()
                 telp = data?.getStringExtra("telp").toString()
                 address = data?.getStringExtra("address").toString()
+
                 iv_image.setImageURI(image)
+
                 txtName.text = name
                 txtGender.text = gender
                 txtAge.text = age
@@ -83,6 +90,11 @@ class ProfileActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun goToAbout(){
+    val intent = Intent(this, AboutActivity::class.java)
+        startActivity(intent)
     }
 
     private fun dialPhoneNumber(phoneNumber: String) {

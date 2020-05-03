@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.net.toFile
 
 
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
-    private var inputImage : Uri? = null
+    private var inputImage : Uri? =Uri.parse("android.resource://com.example.smkcodingchalenge1/drawable/ic_person_rounded")
     private var inputName : String = ""
     private var inputAge : String = ""
     private var inputGender : String = ""
